@@ -1,6 +1,18 @@
-<mat-toolbar color="primary">
-  {{title}}
-  <span class="spacer"></span>
-  {{version}}
 
-</mat-toolbar>
+
+<div class="page-wrapper">
+  <div #content class="app-content-wrapper">
+    <div class="app-content-header-wrapper">
+      <mat-toolbar color="primary">
+        {{title}}
+        <span class="spacer"></span>
+        {{version}}
+
+      </mat-toolbar>
+    </div>
+    <div class="app-content-body-wrapper">
+      <app-status-table></app-status-table>
+
+    </div>
+  </div>
+</div>

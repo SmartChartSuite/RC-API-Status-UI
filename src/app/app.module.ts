@@ -7,6 +7,7 @@ import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {ConfigService} from "./services/config.service";
+import { StatusTableComponent } from './components/status-table/status-table.component';
 
 export const configFactory = (configService: ConfigService) => {
   return () => configService.loadConfig();
@@ -14,7 +15,8 @@ export const configFactory = (configService: ConfigService) => {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatusTableComponent
   ],
   imports: [
     BrowserModule,

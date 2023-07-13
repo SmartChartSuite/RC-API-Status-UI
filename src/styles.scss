@@ -1,9 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; width: 100% }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+app-root { display: flex; height: 100%; width: 100% }
+
 mat-toolbar {
   display:flex;
-  position: fixed;
   justify-content: space-between;
 }
+
+.full-screen {
+  height: 100%;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  justify-content: stretch;
+  > * {
+    flex: 0 0 auto;
+  }
+}
+
+.flex-col {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.page-wrapper {
+  @extend .flex;
+  @extend .full-screen;
+  flex: 1;
+}
+
+.app-content-wrapper {
+  @extend .flex-col;
+  @extend .full-screen;
+  flex: 1;
+}
+
+.app-content-header-wrapper {
+  flex: 0;
+}
+
+.component-wrapper {
+  @extend .flex-col;
+  flex: 1;
+  margin: 16px;
+}
+
+.app-content-body-wrapper {
+  @extend .flex-col;
+  flex: 1;
+  > * {
+    @extend .component-wrapper;
+  }
+  > .app-patient-summary-header, router-outlet {
+    flex: 0 0 auto;
+  }
+  > router-outlet {
+    margin: 0;
+  }
+}
+
+.flex-wrapper {
+  @extend .flex-col;
+  flex: 1;
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+

@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigService} from './services/config.service';
-import {Config} from "./models/config";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -10,24 +8,15 @@ import {Observable} from "rxjs";
 })
 export class AppComponent implements OnInit {
 
-  config$: Observable<Config>;
-  title: string = "36546546";
-  version: string = "645645645";
+  title: string = "";
+  version: string = "";
 
-  constructor(private configService: ConfigService) {
-    this.config$ = this.configService.config$
-  }
+  constructor(private configService: ConfigService) {}
 
   ngOnInit(): void {
-    this.config$.subscribe(
-      config => {
-        console.log("got Config")
-        console.log(config)
-        this.title = config.title;
-        this.version = config.version;
-        document.title = this.title;
-      }
-    )
+    this.title = this.configService.config.title;
+    this.version = this.configService.config.version;
+    document.title = this.title;
   }
 
 }
