@@ -1,0 +1,9 @@
+{
+  "version": "",
+  "title": "RC API Status Tracker",
+  "deployUrl": "https://smartchartsuite.dev.heat.icl.gtri.org/rc-api/",
+  "rcApiEndPoints": {
+    "allJobsStatus": "/forms/status/all"
+  }
+}
+
