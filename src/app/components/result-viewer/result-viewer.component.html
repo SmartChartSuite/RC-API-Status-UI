@@ -1,0 +1,24 @@
+<div class="job-details-page-wrapper">
+  <div class="result-viewer-header">Job Details</div>
+
+  <ng-container *ngIf="jobDetails; else noResult">
+    <div class="job-details">
+        <div class="job-details-label">Job ID:</div>
+        <div class="job-details-value">{{jobDetails.jobId}}</div>
+
+        <div class="job-details-label">Status:</div>
+        <div class="job-details-value">{{jobDetails.jobStatus}}</div>
+
+        <div class="job-details-label">Started On:</div>
+        <div class="job-details-value">{{jobDetails.jobStartDateTime}}</div>
+    </div>
+
+    <textarea class="results-wrapper"
+      [innerHTML]="jobDetails.result | json">
+    </textarea>
+  </ng-container>
+
+  <ng-template #noResult>
+    Select a job to view details.
+  </ng-template>
+</div>

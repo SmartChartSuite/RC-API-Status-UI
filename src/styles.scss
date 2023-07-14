@@ -1,12 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; width: 100% }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-app-root { display: flex; height: 100%; width: 100% }
+html, body {
+  height: 100%;
+  width: 100%
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+}
+
+app-root {
+  display: flex;
+  height: 100%;
+  width: 100%
+}
 
 mat-toolbar {
-  display:flex;
+  display: flex;
   justify-content: space-between;
+
+  > * {
+    margin: 10px;
+  }
+
+  > .spacer {
+    flex: 1;
+  }
 }
 
 .full-screen {
@@ -19,6 +40,7 @@ mat-toolbar {
   align-items: stretch;
   overflow: hidden;
   justify-content: stretch;
+
   > * {
     flex: 0 0 auto;
   }
@@ -54,12 +76,15 @@ mat-toolbar {
 .app-content-body-wrapper {
   @extend .flex-col;
   flex: 1;
+
   > * {
     @extend .component-wrapper;
   }
+
   > .app-patient-summary-header, router-outlet {
     flex: 0 0 auto;
   }
+
   > router-outlet {
     margin: 0;
   }
@@ -74,3 +99,45 @@ mat-toolbar {
   overflow-y: scroll;
 }
 
+.result-viewer-sidenav {
+  width: 35%;
+  min-width: 250px;
+  height: 100%;
+  background-color: inherit
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: larger;
+  padding: 8px;
+  background-color: #3f51b5;
+  color: white;
+  width: 90%;
+  margin: auto;
+  border: 1px solid #3f51b5;
+
+}
+
+.content-wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+.fake-card-wrapper{
+  border: 1px solid #3f51b5;
+  width: 90%;
+  margin: auto;
+  padding: 8px 8px 0;
+  background-color: lightgrey;
+}
+
+.table-wrapper {
+  padding: 8px;
+  width: 90%;
+  margin: auto;
+  border: 1px solid #3f51b5;
+}
+
+.vertical-spacer {
+  height: 8px;
+}

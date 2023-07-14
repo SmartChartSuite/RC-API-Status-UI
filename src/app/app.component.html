@@ -7,12 +7,24 @@
         {{title}}
         <span class="spacer"></span>
         {{version}}
-
+        <button mat-raised-button color="accent"
+                (click)="resultViewer.toggle()"
+                matTooltip="Show/Hide Job Details">
+          Toggle Job Details
+        </button>
       </mat-toolbar>
     </div>
     <div class="app-content-body-wrapper">
-      <app-status-table></app-status-table>
-
+      <mat-sidenav-container hasBackdrop="false">
+        <mat-sidenav #resultViewer class="result-viewer-sidenav" mode="side" position="end" disableClose opened>
+          <app-result-viewer [jobDetails]="jobDetails"></app-result-viewer>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <app-start-job></app-start-job>
+          <div class="vertical-spacer"></div>
+          <app-status-table (showDetails)="showDetails($event)"></app-status-table>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
     </div>
   </div>
 </div>

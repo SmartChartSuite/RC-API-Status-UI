@@ -2,8 +2,11 @@
   "version": "",
   "title": "RC API Status Tracker",
   "deployUrl": "https://smartchartsuite.dev.heat.icl.gtri.org/rc-api",
+  "refreshRate": "30000",
   "rcApiEndpoints": {
-    "allJobsStatus": "/forms/status/all"
+    "allForms": "/forms",
+    "allJobsStatus": "/forms/status/all",
+    "startAsyncJob": "/forms/start?asyncFlag=true"
   }
 }
 

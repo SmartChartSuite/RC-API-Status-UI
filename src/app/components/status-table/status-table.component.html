@@ -1,3 +1,35 @@
-<p>status-table works!</p>
+<div class="content-wrapper">
+  <div class="section-title">Active Jobs (Click a row to see details.)</div>
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="jobListDataSource" matSort class="job-list-table"
+           matSortDisableClear
+           matSortActive="Started On"
+           matSortDirection="desc">
+      <ng-container matColumnDef="jobStartDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Started On</th>
+        <td mat-cell *matCellDef="let row">{{row.jobStartDateTime}}</td>
+      </ng-container>
+      <ng-container matColumnDef="jobId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Job ID</th>
+        <td mat-cell *matCellDef="let row">{{row.jobId}}</td>
+      </ng-container>
+      <ng-container matColumnDef="jobStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
+        <td mat-cell *matCellDef="let row">{{row.jobStatus}}</td>
+      </ng-container>
 
-<h1>?ADOSAKPSADPOSAKPK</h1>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="this.showDetails.emit(row)"
+        style="cursor: pointer"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="3">
+        <span *ngIf="jobListDataSource.data.length === 0">
+          No jobs found. (If this application was just started, please give it a moment to pull the running jobs.)
+        </span>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

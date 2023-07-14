@@ -3,12 +3,11 @@ export class JobStatus {
 
   static createFromFHIR(parameters: any) {
     let jobStatus = new JobStatus();
-    console.log(parameters)
     const parameterList = parameters.parameter;
-    jobStatus.jobId = parameterList.filter((param: any) => param.name === "jobId");
-    jobStatus.jobStatus = parameterList.filter((param: any) => param.name === "jobStatus");
-    jobStatus.result = parameterList.filter((param: any) => param.name === "result");
-    jobStatus.jobStartDateTime = parameterList.filter((param: any) => param.name === "jobStartDateTime");
+    jobStatus.jobId = parameterList.find((param: any) => param.name === "jobId").valueString;
+    jobStatus.jobStatus = parameterList.find((param: any) => param.name === "jobStatus").valueString;
+    jobStatus.result = parameterList.find((param: any) => param.name === "result").resource;
+    jobStatus.jobStartDateTime = parameterList.find((param: any) => param.name === "jobStartDateTime").valueDateTime;
     return jobStatus;
   }
 

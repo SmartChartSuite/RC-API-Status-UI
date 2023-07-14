@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigService} from './services/config.service';
+import {JobStatus} from "./models/job-status";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent implements OnInit {
 
   title: string = "";
   version: string = "";
+  jobDetails: JobStatus | undefined;
 
   constructor(private configService: ConfigService) {}
 
@@ -19,4 +21,9 @@ export class AppComponent implements OnInit {
     document.title = this.title;
   }
 
+  showDetails(jobDetails: any) {
+    console.log("Caught event");
+    console.log(jobDetails)
+    this.jobDetails = jobDetails;
+  }
 }
