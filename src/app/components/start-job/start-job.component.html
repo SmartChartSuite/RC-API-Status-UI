@@ -1,20 +1,20 @@
 <div class="content-wrapper">
-<div class="section-title">Start a Job</div>
-<div class="fake-card-wrapper">
+  <div class="section-title">Start a Job</div>
+  <div class="fake-card-wrapper">
     <div class="form-wrapper">
-    <form [formGroup]="startJobForm">
-      <mat-form-field>
-        <mat-label>Patient ID</mat-label>
-        <input matInput formControlName="patientId">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Job Package/Form</mat-label>
-        <mat-select formControlName="jobPackage">
-          <mat-option *ngFor="let form of formList$ | async" [value]="form">{{form}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="onSubmit()">Start Job</button>
-    </form></div>
-
-</div>
+      <form [formGroup]="startJobForm">
+        <mat-form-field>
+          <mat-label>Patient ID</mat-label>
+          <input matInput formControlName="patientId">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Job Package/Form</mat-label>
+          <mat-select formControlName="jobPackage">
+            <mat-option *ngFor="let form of formList$ | async" [value]="form">{{form}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Start Job</button>
+      </form>
+    </div>
+  </div>
 </div>

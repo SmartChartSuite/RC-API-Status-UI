@@ -16,9 +16,7 @@ export class StatusTableComponent implements OnInit {
   displayedColumns: string[] = [ "jobStartDateTime", "jobId", "jobStatus"]
   jobListDataSource: MatTableDataSource<any>;
 
-  @ViewChild(MatSort) set matSort(sort: MatSort) {
-    this.jobListDataSource.sort = sort;
-  }
+
 
   refreshRate: number = 30000;
   private readonly autoRefresh$ = interval(this.refreshRate).pipe(startWith(0));

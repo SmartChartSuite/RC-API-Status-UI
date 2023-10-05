@@ -1,6 +1,5 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from "@angular/common";
@@ -22,6 +21,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { IntroductionBlockComponent } from './components/introduction-block/introduction-block.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 export const configFactory = (configService: ConfigService) => {
   return () => configService.loadConfig();
@@ -32,7 +33,8 @@ export const configFactory = (configService: ConfigService) => {
     AppComponent,
     StatusTableComponent,
     ResultViewerComponent,
-    StartJobComponent
+    StartJobComponent,
+    IntroductionBlockComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ export const configFactory = (configService: ConfigService) => {
     MatSelectModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule
   ],
   providers: [
     {

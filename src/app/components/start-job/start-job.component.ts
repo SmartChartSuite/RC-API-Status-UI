@@ -29,12 +29,16 @@ export class StartJobComponent {
       console.log("Form is Invalid")
     }
     else {
-    this.jobService.postStartAsyncJob(this.startJobForm.value).subscribe({
-      next: (response: any) => {
-        this._snackBar.open("Job Submitted", undefined,
-          {duration: 5000, verticalPosition: "top"});
-        this.startJobForm.reset();
-      }
+      let obs$ = this.jobService.postStartAsyncJob(this.startJobForm.value);
+
+      obs$.subscribe({
+        next: (response: any) => {
+          this._snackBar.open("Job Submitted", undefined,
+            {duration: 5000, verticalPosition: "top"});
+          this.startJobForm.reset();
+        },
+        complete: () => {},
+        error: err => {}
     })}
   }
 }

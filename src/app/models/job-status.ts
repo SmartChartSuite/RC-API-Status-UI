@@ -1,7 +1,7 @@
 export class JobStatus {
   constructor() {}
 
-  static createFromFHIR(parameters: any) {
+  static createFromFHIR(parameters: any): JobStatus {
     let jobStatus = new JobStatus();
     const parameterList = parameters.parameter;
     jobStatus.jobId = parameterList.find((param: any) => param.name === "jobId").valueString;
